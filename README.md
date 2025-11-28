@@ -25,8 +25,8 @@ ShopHub is a complete eCommerce solution featuring:
 
 ```bash
 # If using Git
-git clone <repository-url>
-cd Task_job
+git clone https://github.com/OmarFaruk00/ShopHub.git
+cd ShopHub
 
 # Or download and extract the project
 ```
