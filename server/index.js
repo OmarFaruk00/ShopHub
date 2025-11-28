@@ -302,5 +302,6 @@ app.delete('/api/products/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Express server running on http://localhost:${PORT}`);
   console.log(`📡 API endpoints available at http://localhost:${PORT}/api`);
+  console.log(`✅ Server ready to accept requests`);
 });
 
