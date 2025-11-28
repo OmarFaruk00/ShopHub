@@ -285,7 +285,39 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-            <button className="btn-primary flex-1 text-lg py-3">
+            <button 
+              onClick={() => {
+                // Get existing cart from localStorage
+                const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+                
+                // Check if product already in cart
+                const existingItem = existingCart.find((item: any) => item.id === product.id);
+                
+                if (existingItem) {
+                  // Update quantity if already in cart
+                  existingItem.quantity += 1;
+                } else {
+                  // Add new item to cart
+                  existingCart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                  });
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(existingCart));
+                
+                // Dispatch custom event to update cart count in navbar
+                window.dispatchEvent(new Event('cartUpdated'));
+                
+                // Show success message
+                alert(`${product.name} added to cart!`);
+              }}
+              className="btn-primary flex-1 text-lg py-3"
+            >
               Add to Cart
             </button>
             <button className="btn-secondary flex-1 text-lg py-3">
