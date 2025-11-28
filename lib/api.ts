@@ -72,11 +72,11 @@ export const productApi = {
     const queryString = params.toString();
     const endpoint = `/products${queryString ? `?${queryString}` : ''}`;
     
-    const response = await apiRequest<{ data: Product[] }>(endpoint);
-    if (!response.data || !Array.isArray(response.data.data)) {
+    const response = await apiRequest<{ data: Product[]; total: number }>(endpoint);
+    if (!response.data || !Array.isArray(response.data)) {
       return [];
     }
-    return response.data.data;
+    return response.data;
   },
 
   // Get single product
