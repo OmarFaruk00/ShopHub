@@ -23,13 +23,13 @@
 
 #### Variable 3: GOOGLE_CLIENT_ID
 - **Name:** `GOOGLE_CLIENT_ID`
-- **Value:** `917552975364-dfdf7ol5moallers68hss95e9ldqd18p.apps.googleusercontent.com`
+- **Value:** আপনার Google Client ID (Google Console থেকে)
 - **Environment:** ✅ Production, ✅ Preview, ✅ Development (সব select করুন)
 - **Save** করুন
 
 #### Variable 4: GOOGLE_CLIENT_SECRET
 - **Name:** `GOOGLE_CLIENT_SECRET`
-- **Value:** `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`
+- **Value:** আপনার Google Client Secret (Google Console থেকে)
 - **Environment:** ✅ Production, ✅ Preview, ✅ Development (সব select করুন)
 - **Save** করুন
 
