@@ -13,6 +13,11 @@ export default withAuth(
 )
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/profile/:path*', '/products/add/:path*', '/products/manage/:path*'],
+  matcher: [
+    '/dashboard/:path*',
+    '/profile/:path*',
+    '/products/add/:path*',
+    '/products/manage/:path*',
+  ],
 }
 
