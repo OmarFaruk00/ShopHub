@@ -38,3 +38,10 @@ next-env.d.ts
 # server
 server/node_modules
 server/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
