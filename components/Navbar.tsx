@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useState, useRef, useEffect } from 'react'
 
+/**
+ * Navbar component with authentication state and navigation
+ */
 export default function Navbar() {
   const { data: session, status } = useSession()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
