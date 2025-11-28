@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+/**
+ * Footer component with company information and links
+ */
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
