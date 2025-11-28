@@ -73,16 +73,19 @@ export const productApi = {
     const endpoint = `/products${queryString ? `?${queryString}` : ''}`;
     
     const response = await apiRequest<{ data: Product[] }>(endpoint);
-    return response.data || [];
+    if (!response.data || !Array.isArray(response.data.data)) {
+      return [];
+    }
+    return response.data.data;
   },
 
   // Get single product
   getById: async (id: number): Promise<Product> => {
     const response = await apiRequest<{ data: Product }>(`/products/${id}`);
-    if (!response.data) {
+    if (!response.data || !response.data.data) {
       throw new Error('Product not found');
     }
-    return response.data;
+    return response.data.data;
   },
 
   // Create product
@@ -91,10 +94,10 @@ export const productApi = {
       method: 'POST',
       body: JSON.stringify(productData),
     });
-    if (!response.data) {
+    if (!response.data || !response.data.data) {
       throw new Error('Failed to create product');
     }
-    return response.data;
+    return response.data.data;
   },
 
   // Update product
@@ -103,10 +106,10 @@ export const productApi = {
       method: 'PUT',
       body: JSON.stringify(productData),
     });
-    if (!response.data) {
+    if (!response.data || !response.data.data) {
       throw new Error('Failed to update product');
     }
-    return response.data;
+    return response.data.data;
   },
 
   // Delete product
